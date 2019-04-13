@@ -6,6 +6,7 @@ COPY . .
 RUN npm run build
 
 FROM nginx
+EXPOSE 80
 # 本番環境のサーバーではbuildしたものだけが必要
 # コピー先はhttps://hub.docker.com/_/nginxのドキュメントを参照
 COPY --from=builder /app/build /usr/share/nginx/html
